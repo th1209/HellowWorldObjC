@@ -10,7 +10,6 @@
 
 @implementation MyTestClass
 
-// 仮引数の書き方が、何だか取っ付きづらい...
 -(void) setMessage : (NSString*)str {
     message = str;
 }
@@ -28,10 +27,41 @@
 // Objective-Cの慣例上、コンビニエンスコンストラクタと呼ばれるメソッド.
 // (自クラスに持たせるファクトリメソッドのこと)
 +(MyTestClass*) myTestClassWithMessage : (NSString*) str {
-    // "self"キーワードは、クラスメソッドの場合そのクラス自身を示す.
-    MyTestClass* obj = [[self alloc] init];
+    MyTestClass* obj;
+    // クラスメソッドでインスタンスを生成する場合、ARC側で参照カウンタが追いきれないため、
+    // "@autoreleasepool"と記載して、明示的にリファレンスカウンタに乗せる必要があるらしい.
+    @autoreleasepool {
+        // "self"キーワードは、クラスメソッドの場合そのクラス自身を示す.
+        obj = [[self alloc] init];
+    }
+
     [obj setMessage:str];
     return obj;
+}
+
+@end
+
+
+@implementation SubMyTestClass
+
++(SubMyTestClass*) subMyTestClassWithMessage : (NSString*)str
+                                 andMessage2 : (NSString*)str2 {
+    SubMyTestClass* obj = [super myTestClassWithMessage:str];
+    [obj setMessage2:str2];
+    return obj;
+}
+
+-(void) setMessage2 : (NSString*) str2 {
+    message2 = str2;
+}
+
+-(NSString*) getMessage2 {
+    return message2;
+}
+
+// メソッドのオーバーライドの場合、定義だけ書けばよく、宣言は省略する.
+-(void) printMessage {
+    NSLog(@"%@ %@", message, message2);
 }
 
 @end

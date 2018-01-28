@@ -34,6 +34,10 @@ int main(int argc, const char * argv[]) {
         // クラスインスタンスの場合、汎用な型"id"に代入することができる(動的な型付けになる点に注意).
         //id obj = [MyTestClass myTestClassWithMessage:@"Hello, Objective-C !"];
         //[obj printMessage];
+        
+        // サブクラスを使ってみる.
+        //id subObj = [SubMyTestClass subMyTestClassWithMessage:@"Hello" andMessage2:@",SubClass !"];
+        //[subObj printMessage];
     }
     return 0;
 }
