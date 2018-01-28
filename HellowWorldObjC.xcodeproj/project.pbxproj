@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4BA630C9201D7DCA0034E9F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA630C8201D7DCA0034E9F6 /* main.m */; };
+		4BA630D3201D81210034E9F6 /* MyTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA630D2201D81210034E9F6 /* MyTestClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		4BA630C5201D7DCA0034E9F6 /* HellowWorldObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HellowWorldObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA630C8201D7DCA0034E9F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4BA630D1201D81210034E9F6 /* MyTestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTestClass.h; sourceTree = "<group>"; };
+		4BA630D2201D81210034E9F6 /* MyTestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTestClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				4BA630C8201D7DCA0034E9F6 /* main.m */,
+				4BA630D1201D81210034E9F6 /* MyTestClass.h */,
+				4BA630D2201D81210034E9F6 /* MyTestClass.m */,
 			);
 			path = HellowWorldObjC;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA630D3201D81210034E9F6 /* MyTestClass.m in Sources */,
 				4BA630C9201D7DCA0034E9F6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
