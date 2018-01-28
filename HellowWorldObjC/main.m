@@ -39,13 +39,17 @@ int main(int argc, const char * argv[]) {
         //id subObj = [SubMyTestClass subMyTestClassWithMessage:@"Hello" andMessage2:@",SubClass !"];
         //[subObj printMessage];
 
-        // メンバ変数に直接アクセスする.
+        // メンバ変数に直接アクセスする(Objective-Cでは、非推奨なコーディング作法だろう).
         // 以下の点に注意.
         //   1. Cの->演算子を使ってアクセスする.
         //   2. []でメンバ変数にアクセスはできない. []演算子はsmalltalk由来の機能で、メンバ変数へのアクセスは制限しているからだろう.
         //   3. id型を使うとメンバ変数にアクセスできない. 動的型付けで、クラスのサイズが予測できないからだろう.
-        MyTestClass* obj = [MyTestClass myTestClassWithMessage:@"Access to member variable directly."];
-        NSLog(@"%@", obj->message);
+        // MyTestClass* obj = [MyTestClass myTestClassWithMessage:@"Access to member variable directly."];
+        // NSLog(@"%@", obj->message);
+        
+        // プロパティを使ってみる.
+        id obj = [MyTestClass myTestClassWithMessage:@"Use property."];
+        NSLog(@"%@", [obj getMessage]);
     }
     return 0;
 }

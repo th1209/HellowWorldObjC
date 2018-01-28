@@ -9,15 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface MyTestClass : NSObject {
-    @public
     NSString* message;
 }
+
+@property (retain, getter=getMessage, setter=setMessage:) NSString* message;
 
 // Objective-Cでは、"-"がインスタンスメソッド、"+"がクラスメソッドを表す.
 +(MyTestClass*) myTestClassWithMessage : (NSString*)str;
 
--(void) setMessage : (NSString*)str;
--(NSString*) getMessage;
 -(void) printMessage;
 
 @end
@@ -27,12 +26,11 @@
     NSString* message2;
 }
 
+@property (retain, getter=getMessage2, setter=setMessage2:) NSString* message2;
+
 // Objective-Cの場合、第二引数以降にはラベルを付ける.
 // (取っ付きづらい...省略してもOKだが、慣例的に付ける場合が一般的なんだとか.)
 +(SubMyTestClass*) subMyTestClassWithMessage : (NSString*)str
                                  andMessage2 : (NSString*)str2;
-
--(void) setMessage2 : (NSString*)str2;
--(NSString*) getMessage2;
 
 @end

@@ -10,13 +10,8 @@
 
 @implementation MyTestClass
 
--(void) setMessage : (NSString*)str {
-    message = str;
-}
-
--(NSString*) getMessage {
-    return message;
-}
+// プロパティを使う場合、クラス定義側で、@synthesizeコンパイラディレクティブの記載が必要.
+@synthesize message;
 
 -(void) printMessage {
     // Objective-C式の文字列の場合、頭に"@"を付ける.
@@ -49,14 +44,6 @@
     SubMyTestClass* obj = [super myTestClassWithMessage:str];
     [obj setMessage2:str2];
     return obj;
-}
-
--(void) setMessage2 : (NSString*) str2 {
-    message2 = str2;
-}
-
--(NSString*) getMessage2 {
-    return message2;
 }
 
 // メソッドのオーバーライドの場合、定義だけ書けばよく、宣言は省略する.
