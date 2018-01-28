@@ -12,8 +12,11 @@
     NSString* message;
 }
 
--(void)setMessage:(NSString*) str;
--(NSString*)getMessage;
--(void)printMessage;
+-(void) setMessage : (NSString*)str;
+-(NSString*) getMessage;
+-(void) printMessage;
+
+// Objective-Cでは、"-"がインスタンスメソッド、"+"がクラスメソッドを表す.
++(MyTestClass*) myTestClassWithMessage : (NSString*)str;
 
 @end
