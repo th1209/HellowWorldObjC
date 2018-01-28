@@ -28,8 +28,8 @@ int main(int argc, const char * argv[]) {
         //[obj printMessage];
 
         // コンビニエンスコンストラクタによる初期化.
-        MyTestClass* obj = [MyTestClass myTestClassWithMessage:@"Hello, Objective-C !"];
-        [obj printMessage];
+        //MyTestClass* obj = [MyTestClass myTestClassWithMessage:@"Hello, Objective-C !"];
+        //[obj printMessage];
         
         // クラスインスタンスの場合、汎用な型"id"に代入することができる(動的な型付けになる点に注意).
         //id obj = [MyTestClass myTestClassWithMessage:@"Hello, Objective-C !"];
@@ -38,6 +38,14 @@ int main(int argc, const char * argv[]) {
         // サブクラスを使ってみる.
         //id subObj = [SubMyTestClass subMyTestClassWithMessage:@"Hello" andMessage2:@",SubClass !"];
         //[subObj printMessage];
+
+        // メンバ変数に直接アクセスする.
+        // 以下の点に注意.
+        //   1. Cの->演算子を使ってアクセスする.
+        //   2. []でメンバ変数にアクセスはできない. []演算子はsmalltalk由来の機能で、メンバ変数へのアクセスは制限しているからだろう.
+        //   3. id型を使うとメンバ変数にアクセスできない. 動的型付けで、クラスのサイズが予測できないからだろう.
+        MyTestClass* obj = [MyTestClass myTestClassWithMessage:@"Access to member variable directly."];
+        NSLog(@"%@", obj->message);
     }
     return 0;
 }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MyTestClass : NSObject {
+    @public
     NSString* message;
 }
 
